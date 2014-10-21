@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Scene>500,300
+	<obj>100,100
+		<myengine.BoxCollider>32,32</myengine.BoxCollider>
+		<myengine.BoxRenderer>32,32,0xFFFFFF,true</myengine.BoxRenderer>
+		<myengine.PointBody>1,1,0,false,2</myengine.PointBody>
+	</obj>
+	
+	<obj>250,250
+		<myengine.BoxCollider>500,10</myengine.BoxCollider>
+		<myengine.BoxRenderer>500,10,0xFFFFFF,true</myengine.BoxRenderer>
+		<myengine.PointBody>1,0,0,true,2</myengine.PointBody>
+	</obj>
+
+	
+</Scene>
