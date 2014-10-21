@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<Scene>640,410
+	<obj>320,200
+		<myengine.SpriteRenderer>src//TestingBGM.png</myengine.SpriteRenderer>
+	</obj>
+	<obj>320,200
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	
+	<obj>100,200
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	<obj>200,200
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	<obj>200,136
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	<obj>200,168
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	<obj>420,200
+		<myengine.SpriteRenderer>src//Dirt1X1.png</myengine.SpriteRenderer>
+		<myengine.BoxCollider> 32,32</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,0,true,1 </myengine.PointBody>
+		
+	</obj>
+	
+	<obj>320,150
+		<myengine.BoxRenderer> 20,40,0xFFFFFF,true</myengine.BoxRenderer>
+		<Zenith_Components.Player>100,2.5,3</Zenith_Components.Player>
+		<myengine.BoxCollider> 25,40</myengine.BoxCollider>	
+		<myengine.PointBody> 1,0,1,false,1 </myengine.PointBody>
+		
+	</obj>
+	
+</Scene>
