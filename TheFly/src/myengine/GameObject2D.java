@@ -11,7 +11,9 @@ public class GameObject2D implements IRenderable, IUpdateable {
 	List<IUpdateable> behaviors;
 	ICollideable collider;
 	public float x,y;
-	public GameObject2D(int xpos,int ypos){
+	public float rotation;
+	public GameObject2D(int xpos,int ypos,float rot){
+		rotation = rot;
 		behaviors = new ArrayList<IUpdateable>();
 		renderers = new ArrayList<IRenderable>();
 		collider = null;

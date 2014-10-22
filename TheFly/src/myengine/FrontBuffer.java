@@ -22,6 +22,7 @@ public class FrontBuffer extends JPanel{
 	public void RenderBatch(IRenderable[] i,Vec2 o){
 		
 		Graphics2D g = b.createGraphics();
+		g.clearRect(0, 0, b.getWidth(),b.getHeight());
 		for (int y =0;y<i.length;y++){
 			IRenderable ir = i[y]; 
 			//g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

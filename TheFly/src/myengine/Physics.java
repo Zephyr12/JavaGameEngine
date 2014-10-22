@@ -92,7 +92,7 @@ public class Physics {
 		
 		for(int i = 0; i < objects.size();i++){
 			PointBody b1 = objects.get(i);
-			for(int j = Math.max(i-1,0); j < objects.size();j++){
+			for(int j = Math.max(i-5,0); j < objects.size();j++){
 				PointBody b2 = objects.get(j);
 				
 				if(b1 != b2){

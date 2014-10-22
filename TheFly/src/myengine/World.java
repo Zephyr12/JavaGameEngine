@@ -55,7 +55,8 @@ public class World {
 							String posXY = x.getNodeValue().replaceAll("\\s", "");
 							int posX =Integer.parseInt(posXY.split(",")[0]);
 							int posY =Integer.parseInt(posXY.split(",")[1]);
-							GameObject2D obj = new GameObject2D(posX,posY);
+							float rot =Float.parseFloat(posXY.split(",")[2]);
+							GameObject2D obj = new GameObject2D(posX,posY,rot);
 							
 							while(x != null){
 								if(x.getNodeType() == Node.ELEMENT_NODE){// first component is a renderer

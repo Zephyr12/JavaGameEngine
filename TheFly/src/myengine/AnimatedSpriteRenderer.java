@@ -42,7 +42,9 @@ public class AnimatedSpriteRenderer extends Component implements IRenderable{
 			currentFrame = 0;
 		}
 		// TODO Auto-generated method stub
+		g.rotate(Math.toRadians(object.rotation*360),object.x,object.y);
 		g.drawImage(img.get((int)currentFrame),(int)(object.getX()+offset.x)-(img.get((int)currentFrame).getWidth()/2),(int)(object.getY()+offset.y)-(img.get((int)currentFrame).getHeight()/2),null);
+		g.rotate(Math.toRadians(object.rotation*-360),object.x,object.y);
 		currentFrame += fps/60.0;
 		
 	}
