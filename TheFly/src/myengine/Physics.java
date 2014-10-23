@@ -86,8 +86,8 @@ public class Physics {
 			
 		}
 		for(int i = 0; i < objects.size();i++){ // Game G
-			PointBody b1 = objects.get(i);
-			b1.veloY += 0.05;//grav;
+			//PointBody b1 = objects.get(i);
+			//b1.veloY += 0;//grav;
 		}
 		
 		for(int i = 0; i < objects.size();i++){

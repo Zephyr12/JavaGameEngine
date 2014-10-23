@@ -28,9 +28,9 @@ public class SpriteRenderer extends Component implements IRenderable{
 	@Override
 	public void Render(Graphics2D g,Vec2 offset) {
 		// TODO Auto-generated method stub
-		g.rotate(Math.toRadians(object.rotation*360),object.x,object.y);
+		g.rotate(Math.toRadians(object.rotation*360),object.x+offset.x,object.y+offset.y);
 		g.drawImage(img,(int)(object.getX()+offset.x-(img.getWidth()*0.5)),(int)(object.getY()+offset.y-(img.getHeight()*0.5)),null);
-		g.rotate(Math.toRadians(object.rotation*-360),object.x,object.y);
+		g.rotate(Math.toRadians(object.rotation*-360),object.x+offset.x,object.y+offset.y);
 	}
 	public int GetType() {
 		// TODO Auto-generated method stub

@@ -22,13 +22,14 @@ public class BoxRenderer extends Component implements IRenderable {
 		// TODO Auto-generated method stub
 		Color base = g.getColor();
 		g.setColor(c);
-		g.rotate(Math.toRadians(object.rotation*360),object.x,object.y);
+		g.rotate(Math.toRadians(object.rotation*360),object.x+offset.x,object.y+offset.y);
 		if(f){
 			g.fillRect((int)(offset.x + (object.x - w/2)), (int)(offset.y + (object.y - h/2)), w, h);
 		}else{
 			g.drawRect((int)(offset.x + (object.x - w/2)), (int)(offset.y + (object.y - h/2)), w, h);
 		}
-		g.rotate(Math.toRadians(object.rotation*-360),object.x,object.y);
+		g.rotate(Math.toRadians(object.rotation*-360),object.x+offset.x,object.y+offset.y);
+
 	}
 
 	@Override

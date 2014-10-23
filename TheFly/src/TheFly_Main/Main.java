@@ -9,7 +9,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		GameWindow window = GameWindow.getInstance(100,1);
 		World.currentWorld().parseXmlFile("src//MainTestingLevel.xml");
-		window.setTitle("Zenith");
+		window.setTitle("Sector 6865-6c6c-0d0a");
 		window.Render();
 		while(true){
 			//System.out.println("testinf");
