@@ -2,11 +2,12 @@ package myengine;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class GameObject2D implements IRenderable, IUpdateable {
+public class GameObject2D implements Serializable, IRenderable, IUpdateable {
 	List<IRenderable> renderers;
 	List<IUpdateable> behaviors;
 	ICollideable collider;

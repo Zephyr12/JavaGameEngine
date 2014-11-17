@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -22,12 +23,14 @@ import org.xml.sax.SAXException;
 
 public class World {
 	public List<GameObject2D> s;
-	
+	public Hashtable<String,GameObject2D> prefabs;
 	public static World instance;
 	
 	private World(){
 		s = new ArrayList<GameObject2D>();
+		prefabs = new Hashtable<String,GameObject2D>();
 	}
+	
 	public void parseXmlFile(String pathToLevel){
 			for(int i = 0; i < s.size();i++){
 				this.DeleteObject(s.get(i));
@@ -93,8 +96,57 @@ public class World {
 								}
 								x = x.getNextSibling();
 							}
+							
 							World.currentWorld().RegisterObject(obj);
 						}
+						if(n.getNodeName().equals("preobj")){//found an object
+							Node x = n.getFirstChild();
+							String posXY = x.getNodeValue().replaceAll("\\s", "");
+							String prefabName = posXY.split(",")[0];
+							int posX =Integer.parseInt(posXY.split(",")[1]);
+							int posY =Integer.parseInt(posXY.split(",")[2]);
+							float rot =Float.parseFloat(posXY.split(",")[3]);
+							GameObject2D obj = new GameObject2D(posX,posY,rot);
+							
+							while(x != null){
+								if(x.getNodeType() == Node.ELEMENT_NODE){// first component is a renderer
+									String className = x.getNodeName();
+									String rawArguements = x.getFirstChild().getNodeValue()+" ";
+									String[] arguements = rawArguements.trim().split(",");
+									//System.out.println(rawArguements);
+									try {
+										Component c = (Component) Class.forName(className).getConstructor(GameObject2D.class,String[].class).newInstance(obj,arguements);
+										obj.AddComponent(c);
+									} catch (InstantiationException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (IllegalAccessException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (IllegalArgumentException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (InvocationTargetException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (NoSuchMethodException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (SecurityException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									} catch (ClassNotFoundException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									
+								}
+								x = x.getNextSibling();
+							}
+							System.out.println(prefabName + obj.toString());
+							World.currentWorld().prefabs.put(prefabName, obj);
+						}
+						
 					}
 					n = n.getNextSibling();
 					
@@ -108,6 +160,7 @@ public class World {
 			}
 			
 		}
+	
 	public static World currentWorld(){
 		if(instance != null){
 			return instance;
@@ -150,5 +203,18 @@ public class World {
 			go2.MouseClickedEvent(e);
 		}
 	}
-	
+	public GameObject2D Create(String name){
+		try {
+			GameObject2D ref = prefabs.get("\""+name+"\"");
+			GameObject2D o = (GameObject2D) ObjectCloner.deepCopy(ref);
+			System.out.println(o);
+			
+			World.currentWorld().RegisterObject(o);
+			return o;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

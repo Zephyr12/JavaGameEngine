@@ -1,8 +1,9 @@
 package myengine;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 
 
-public interface IRenderable {
+public interface IRenderable extends Serializable{
 	
 	
 	

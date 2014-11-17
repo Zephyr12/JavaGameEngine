@@ -3,6 +3,8 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.imageio.ImageIO;
 
@@ -10,7 +12,7 @@ import javax.imageio.ImageIO;
 public class SpriteRenderer extends Component implements IRenderable{
 	
 	
-	BufferedImage img;
+	transient BufferedImage img;
 	public SpriteRenderer(GameObject2D obj,String[] args){
 		super(obj,args);
 		img = new BufferedImage(1,1,1);
@@ -36,5 +38,20 @@ public class SpriteRenderer extends Component implements IRenderable{
 		// TODO Auto-generated method stub
 		return this.TYPE_RENDERER;
 	}
+	private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        
+        ImageIO.write(img, "png", out); // png is lossless
+        
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        
+        
+        
+        img = ImageIO.read(in);
+        
+    }
 	
 }

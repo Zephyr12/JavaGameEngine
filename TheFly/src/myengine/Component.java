@@ -1,8 +1,10 @@
 package myengine;
 
+import java.io.Serializable;
 
 
-public abstract class Component {
+
+public abstract class Component implements Serializable {
 	public static int TYPE_RENDERER = 2;
 	public static int TYPE_BEHAVIOR = 4;
 	public static int TYPE_COLLIDER = 6;
